@@ -53,7 +53,9 @@ export default function ContactForm() {
             name="email"
             required
             placeholder="Service*"
+            hidden
           />
+          {/* <ServicesDropDown /> */}
         </p>
         <p className={styles.formGroup}>
           <textarea

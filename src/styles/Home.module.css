@@ -32,6 +32,7 @@
 }
 .heroCTA {
   background: var(--gradient);
+  border-radius: 1rem;
 }
 
 @media (min-width: 768px) {

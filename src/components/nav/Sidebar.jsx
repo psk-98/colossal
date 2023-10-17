@@ -1,6 +1,5 @@
-import Link from "next/link"
 import styles from "@/styles/Nav.module.css"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import SideItems from "./SideItems"
 
 const wrapperAnimation = {
@@ -57,7 +56,7 @@ const mainNavAnimation = {
   },
 }
 
-const sideItemsAnimation = {
+export const sideItemsAnimation = {
   open: {
     // opacity: 1,
     scale: 1,
