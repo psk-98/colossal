@@ -1,0 +1,17 @@
+/* pageQuickLinks */
+.pageLinksWrapper {
+  margin: 9rem 0 0 0;
+  text-align: center;
+}
+.pageLinksWrapper a {
+  font-size: 1.5rem;
+}
+.pageLinksWrapper a:nth-child(2) {
+  text-transform: capitalize;
+}
+
+@media (min-width: 1200px) {
+  .pageLinksWrapper {
+    display: none;
+  }
+}

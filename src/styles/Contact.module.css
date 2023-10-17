@@ -1,0 +1,88 @@
+.contactHero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.header {
+  margin: 5rem 0 5.5rem 0;
+  font-size: 3.25rem;
+  font-weight: 600;
+}
+.text {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  margin: 0 0 15rem 0;
+}
+.formTextWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.formHeader {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.formText {
+  margin: 3rem 0 10rem 0;
+  font-size: 1.5rem;
+}
+.contactForm {
+  text-align: right;
+}
+.formGroup input,
+.formGroup textarea {
+  font-size: 1.75rem;
+  padding: 1.5rem 0 1.5rem 2.5rem;
+  margin: 0 0 4rem 0;
+  width: calc(100% - 2rem);
+  background: var(--darkest-color);
+  border: none;
+  border-radius: 1rem;
+}
+.formGroup textarea {
+  height: 25rem;
+}
+
+@media (min-width: 768px) {
+  .header {
+    font-size: 4.25rem;
+  }
+  .text {
+    font-size: 2rem;
+    line-height: 187.5%;
+  }
+  .formGroup input,
+  .formGroup textarea {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .text {
+    width: 70%;
+  }
+
+  .contactForm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .formGroup input,
+  .formGroup textarea {
+    padding: 1.5rem 0 1.5rem 2.75rem;
+  }
+  .formGroup {
+    width: calc(50% - 1.5rem);
+  }
+  .formGroup:nth-last-child(2) {
+    width: calc(100% - 2.75rem);
+  }
+  .formGroup textarea,
+  .formGroup:last-child {
+    width: 100%;
+  }
+}
