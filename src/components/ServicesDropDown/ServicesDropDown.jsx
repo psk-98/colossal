@@ -27,7 +27,7 @@ export default function ServicesDropDown({
   selectedService,
   setSelectedService,
 }) {
-  const [isOpen, setOpen] = useState(true)
+  const [isOpen, setOpen] = useState(false)
 
   return (
     <p className={styles.dropDown}>
