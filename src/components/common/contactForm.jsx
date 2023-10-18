@@ -1,9 +1,12 @@
 "use client"
 import styles from "@/styles/Contact.module.css"
 import { usePathname } from "next/navigation"
+import { useState } from "react"
+import ServicesDropDown from "../ServicesDropDown/ServicesDropDown"
 
 export default function ContactForm() {
   const pathname = usePathname()
+  const [selectedService, setSelectedService] = useState(null)
 
   return (
     <>
@@ -18,8 +21,13 @@ export default function ContactForm() {
           </p>
         </div>
       )}
-      <form className={styles.contactForm}>
-        <p className={styles.formGroup}>
+      <form
+        className={styles.contactForm}
+        method="POST"
+        data-netlify="true"
+        name="contact"
+      >
+        <div className={styles.formGroup}>
           <input
             type="text"
             id="name"
@@ -27,8 +35,8 @@ export default function ContactForm() {
             required
             placeholder="Name*"
           />
-        </p>
-        <p className={styles.formGroup}>
+        </div>
+        <div className={styles.formGroup}>
           <input
             type="email"
             id="email"
@@ -36,38 +44,45 @@ export default function ContactForm() {
             required
             placeholder="Email*"
           />
-        </p>
-        <p className={styles.formGroup}>
+        </div>
+        <div className={styles.formGroup}>
           <input
-            type="email"
-            id="email"
-            name="email"
+            type="number"
+            id="number"
+            name="number"
             required
             placeholder="Contact number*"
           />
-        </p>
-        <p className={styles.formGroup}>
+        </div>
+        <div className={styles.formGroup}>
           <input
-            type="email"
-            id="email"
-            name="email"
+            type="text"
+            id="service"
+            name="service"
             required
             placeholder="Service*"
             hidden
+            value={selectedService ? selectedService : ""}
+            readOnly
           />
-          {/* <ServicesDropDown /> */}
-        </p>
-        <p className={styles.formGroup}>
+          <ServicesDropDown
+            selectedService={selectedService}
+            setSelectedService={setSelectedService}
+          />
+        </div>
+        <div className={styles.formGroup}>
           <textarea
             id="message"
             name="message"
             required
             placeholder="What's on your mind?*"
           ></textarea>
-        </p>
-        <p className={styles.formGroup}>
-          <button className="btn">Submit</button>
-        </p>
+        </div>
+        <div className={styles.formGroup}>
+          <button className="btn" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     </>
   )

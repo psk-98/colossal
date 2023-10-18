@@ -58,6 +58,9 @@
   cursor: pointer;
   margin: 0 0;
 }
+.dropDown button.active {
+  color: var(--light-color);
+}
 .menu {
   position: absolute;
   width: calc(100% - 10rem);
@@ -97,10 +100,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  .dropDown button,
   .formGroup input,
   .formGroup textarea {
     padding: 1.5rem 0 1.5rem 2.75rem;
   }
+  .menu,
   .formGroup {
     width: calc(50% - 1.5rem);
   }

@@ -1,35 +1,67 @@
 import styles from "@/styles/Contact.module.css"
 import { services } from "@/utils/data"
+import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
 
-export default function ServicesDropDown() {
+const menuAnimations = {
+  open: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+  close: {
+    transition: {
+      staggerChildren: 0.2,
+      staggerDirection: -1,
+    },
+  },
+}
+const menuItemAnimations = {
+  open: {
+    scale: 1,
+    transition: { duration: 0.15 },
+  },
+  close: { scale: 0, transition: { duration: 0.1 } },
+}
+export default function ServicesDropDown({
+  selectedService,
+  setSelectedService,
+}) {
   const [isOpen, setOpen] = useState(true)
-  const [selected, setSelected] = useState(null)
 
   return (
-    <div className={styles.dropDown}>
+    <p className={styles.dropDown}>
       <button
         onClick={() => setOpen(!isOpen)}
-        // className={selected ? styles.active : undefined}
+        className={selectedService ? styles.active : undefined}
       >
-        {selected ? selected : "Service v"}
+        {selectedService ? selectedService : "Service v"}
       </button>
-      {isOpen && (
-        <ul className={styles.menu}>
-          {services.map((service, i) => (
-            <li
-              className={styles.menuItem}
-              key={"dropItem" + i}
-              onClick={() => {
-                setSelected(service.header)
-                setOpen(false)
-              }}
-            >
-              {service.header}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+      <AnimatePresence mode="wait">
+        {isOpen && (
+          <motion.ul
+            className={styles.menu}
+            variants={menuAnimations}
+            initial="close"
+            animate="open"
+            exit="close"
+          >
+            {services.map((service, i) => (
+              <motion.li
+                className={styles.menuItem}
+                variants={menuItemAnimations}
+                key={"dropItem" + i}
+                onClick={() => {
+                  setSelectedService(service.header)
+                  setOpen(false)
+                }}
+              >
+                {service.header}
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </p>
   )
 }
